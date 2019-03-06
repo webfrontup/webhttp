@@ -1,0 +1,29 @@
+[
+    {
+        "name":"abc",
+        "age":25,
+        "socre":{
+            "english": 95,
+            "math": 100,
+            "chinese": 98
+        }
+    },
+    {
+        "name": "abcd",
+        "age": 235,
+        "socre": {
+            "english": 95,
+            "math": 100,
+            "chinese": 98
+        }
+    },
+    {
+        "name": "abcef",
+        "age": 225,
+        "socre": {
+            "english": 95,
+            "math": 100,
+            "chinese": 98
+        }
+    }
+]

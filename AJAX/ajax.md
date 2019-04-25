@@ -123,13 +123,18 @@ xhr.send(null);
 
 ### js中常用的编码解码方法
 > 正常的编码解码
+>
 >1、escape/unescape: 主要就是把中文汉字进行编码和解码的
 > 
 > 2、encodeURL/decodeURL:基本上所有的编程语言都支持
+>
 > 3、encodeURIComponent/decodeURICompent
 > escape() will not encode: @*/+
+>
 > encodeURI() will not encode: ~!@#$&*()=:/,;?+'
->encodeURIComponent() will not encode: ~!*()'
+>
+> encodeURIComponent() will not encode: ~!*()'
+>
 > 也可以通过加密的方法进行编码解码
 > 1 可逆转加密
 > 2 不可逆转加密

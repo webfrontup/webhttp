@@ -60,3 +60,11 @@ about http&amp;&amp;ajax
 - 配合 `If-Match` 或者 `If-Non-Match` 使用
 - 对比资源的签名判断是否使用缓存
 
+### Cookie
+> 通过Set-Cookie设置 下次请求会自动带上， 价值对形式，可以设置很多个
+> 属性
+- max-age和expires设置过期时间
+- Secure只在https的时候发送
+- HttpOnly无法通过document.cookie访问
+- 浏览器关闭后，cookie自动删除
+

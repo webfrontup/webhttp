@@ -41,9 +41,9 @@ about http&amp;&amp;ajax
 ### Cache-Control
 > 缓存头
 - public private no-cache
-- max-age: <secodes> 多久到期
-- s-maxage: <secodes> 代理服务器缓存多久到期
-- max-stale: <secodes> 发起请求这方主动代理的头
+- max-age: <`secodes`>多久到期
+- s-maxage: <`secodes`>代理服务器缓存多久到期
+- max-stale: <`secodes`>发起请求这方主动代理的头
 > 重新验证 
 - must-revalidate
 - proxy-revalidate
@@ -67,4 +67,25 @@ about http&amp;&amp;ajax
 - Secure只在https的时候发送
 - HttpOnly无法通过document.cookie访问
 - 浏览器关闭后，cookie自动删除
+
+### 长连接 Connection
+- keep-alive/close
+- Chrome里面有6个并发的链接 会复用tcp ip的链接
+- http请求是在tcp连接上发送的，一个tcp链接可以发送多个http请求
+- http1.1里面，http请求要在tcp上面进行发送他是有先后顺序的，http2上可以一个tcp链接上并发多个http请求
+
+### 数据协商
+> 请求 Accept
+- Accept 想要的数据类型
+- Accept-Encoding 数据编码方式
+- Accept-Language 接收语言
+- User-Agent 用户端浏览器
+
+> 服务端 Content
+- Content-Type - `application/json`
+- `Content-Encoding` 对应 `Accept-Encoding`
+
+### Redirect
+- 302 从a地址暂时跳转到某个地址，下次请求a地址时可能汇编
+- 301 从a地址永久跳转到指定地址
 

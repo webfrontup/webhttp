@@ -38,6 +38,17 @@ about http&amp;&amp;ajax
 ## 建站
 - 通过PTF把自己本地的项目文件上传到服务器指定的目录中（filezilla: ftp上传文件的工具）
 
-
+### Cache-Control
+> 缓存头
+- public private no-cache
+- max-age: <secodes> 多久到期
+- s-maxage: <secodes> 代理服务器缓存多久到期
+- max-stale: <secodes> 发起请求这方主动代理的头
+> 重新验证 
+- must-revalidate
+- proxy-revalidate
+> 其他
+- no-store 永远要要从服务器拿新的内容
+- no-transform 限制代理服务器 不能随便压缩和格式转换
 
 

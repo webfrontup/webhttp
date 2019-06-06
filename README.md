@@ -51,4 +51,12 @@ about http&amp;&amp;ajax
 - no-store 永远要要从服务器拿新的内容
 - no-transform 限制代理服务器 不能随便压缩和格式转换
 
+### 验证头
+> Last-Modified 上次修改时间 
+- 配合 `If-Modified-Since` 或者 `If-Unmodified-Since` 使用
+- 验证资源能否使用缓存 对比上次修改时间以验证资源是否需要更新
+> Etag 数据签名
+- 对资源内容进行hash计算
+- 配合 `If-Match` 或者 `If-Non-Match` 使用
+- 对比资源的签名判断是否使用缓存
 

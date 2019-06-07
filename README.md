@@ -88,4 +88,11 @@ about http&amp;&amp;ajax
 ### Redirect
 - 302 从a地址暂时跳转到某个地址，下次请求a地址时可能汇编
 - 301 从a地址永久跳转到指定地址
-
+ 
+### Content-Security-Policy 内容安全策略
+> 作用
+- 限制资源获取
+- 报告资源获取越权
+> 限制方式
+- default-src 限制全局
+- 指定资源类型 xxx-src

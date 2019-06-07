@@ -96,3 +96,57 @@ about http&amp;&amp;ajax
 > 限制方式
 - default-src 限制全局
 - 指定资源类型 xxx-src
+
+
+
+### Nginx 的配置
+> 1，在node环境下起一个localhost 端口号为8888的服务 如base目录下
+> 2，在对应`host`文件下加入 `test.com  127.0.0.1`
+> 3，在nginx目录下新建`servers`文件并在其中加入 `test.conf`文件，配置如下
+```
+# 设置缓存路径 cache     #levels是否创建二级文件夹 #keys_zone：名字 声明内存大小为10M来进行缓存
+proxy_cache_path cache levels=1:2 keys_zone=my_cache:10m
+server {
+       listen       80;
+       server_name  test.com;
+       location / {
+           proxy_pass   http://127.0.0.1:8888;
+           // 这样 一个物理机器可以跑多个不同的服务，就节省了资源
+           proxy_set_header Host $host; // 值为test.com;而不是http://127.0.0.1:8888;
+       }
+}
+
+```
+> 4，然后启动nginx，在浏览器中访问test.com地址，即可看见代理转发的地址
+
+
+
+### HTTPS ：HTTP-Security
+    意为安全的http
+
+### HTTP2的优势
+- 信道复用
+- 分帧传输 并发发送请求
+- Server Push （Chrome里的并发链接数为6个）（浏览器可以主动为用户报告情况，发送请求）
+
+### Nginx配置HTTP2
+```
+proxy_cache_path cache levels=1:2 keys_zone=my_cache:10m
+server {
+       listen       443 http2;
+       server_name  test.com;
+       http2_push_preload on;
+
+       ssl on;
+       ssl_certificate_key `path1`
+       ssl_certificate `path2`
+       location / {
+           proxy_cache my_cache;
+           proxy_pass   http://127.0.0.1:8888;
+           // 这样 一个物理机器可以跑多个不同的服务，就节省了资源
+           proxy_set_header Host $host; // 值为test.com;而不是http://127.0.0.1:8888;
+           add_header Strict-Transport-Security max-age=200
+       }
+}
+
+```

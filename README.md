@@ -130,6 +130,7 @@ server {
 - Server Push （Chrome里的并发链接数为6个）（浏览器可以主动为用户报告情况，发送请求）
 
 ### Nginx配置HTTP2
+详情见 http://blog.poetries.top/handbook/html/%E6%9C%8D%E5%8A%A1%E7%AB%AF/Nginx.html
 ```
 proxy_cache_path cache levels=1:2 keys_zone=my_cache:10m
 server {

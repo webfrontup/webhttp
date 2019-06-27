@@ -2,7 +2,8 @@ const http = require('http');
 const fs = require('fs')
 
 http.createServer(function(request, response) {
-    console.log('request come', request.url)
+    // request.headers.host:被代理的地址
+    console.log('request come', request.url, request.headers.host)
 
    if(request.url === '/'){
        const html = fs.readFileSync('test.html', 'utf8')
